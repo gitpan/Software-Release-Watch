@@ -1,0 +1,56 @@
+{
+   "abstract" : "Watch latest software releases",
+   "author" : [
+      "Steven Haryanto <stevenharyanto@gmail.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.113640",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Software-Release-Watch",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::Rinci" : "0.01"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Log::Any" : 0,
+            "Module::List" : 0,
+            "Moo" : 0,
+            "Moo::Role" : 0,
+            "Perinci::CmdLine" : "0.67",
+            "Perinci::Sub::Gen::AccessTable" : "0.17",
+            "SemVer" : "v0.3.0",
+            "Software::Catalog" : "0.03",
+            "WWW::Mechanize" : 0,
+            "perl" : "5.010001"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "homepage" : "http://metacpan.org/release/Software-Release-Watch",
+      "repository" : {
+         "url" : "http://github.com/sharyanto/perl-Software-Release-Watch"
+      }
+   },
+   "version" : "0.01"
+}
+
