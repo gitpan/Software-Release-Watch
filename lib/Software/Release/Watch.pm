@@ -1,6 +1,6 @@
 package Software::Release::Watch;
 
-use 5.010;
+use 5.010001;
 use Log::Any '$log';
 use Moo;
 
@@ -14,7 +14,7 @@ our @EXPORT_OK = qw(
                        list_software_releases
                );
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 our %SPEC;
 
@@ -104,7 +104,7 @@ _
     "_perinci.sub.wrapper.validate_args" => 0,
 };
 sub list_software_releases {
-    my %args = @_; if (!exists($args{'software_id'})) { return [400, "Missing argument: software_id"] } my $arg_err; ((defined($args{'software_id'})) ? 1 : (($arg_err = "TMPERRMSG: required data not specified"),0)) && ((!ref($args{'software_id'})) ? 1 : (($arg_err = "TMPERRMSG: type check failed"),0)) && (($args{'software_id'} =~ /(?^:\A[a-z]([a-z0-9_])*\z)/) ? 1 : (($arg_err = "TMPERRMSG: clause failed: match"),0)); if ($arg_err) { return [400, "Invalid argument value for software_id: $arg_err"] } # VALIDATE_ARGS
+    my %args = @_; if (!exists($args{'software_id'})) { return [400, "Missing argument: software_id"] } my $_sahv_dpath = []; my $arg_err; ((defined($args{'software_id'})) ? 1 : (($arg_err //= (@$_sahv_dpath ? '@'.join("/",@$_sahv_dpath).": " : "") . "Required input not specified"),0)) && ((!ref($args{'software_id'})) ? 1 : (($arg_err //= (@$_sahv_dpath ? '@'.join("/",@$_sahv_dpath).": " : "") . "Input is not of type text"),0)) && (($args{'software_id'} =~ /(?^:\A[a-z]([a-z0-9_])*\z)/) ? 1 : (($arg_err //= (@$_sahv_dpath ? '@'.join("/",@$_sahv_dpath).": " : "") . "Must match regex pattern \"(?^:\\\\A[a-z]([a-z0-9_])*\\\\z)\""),0)); if ($arg_err) { return [400, "Invalid argument value for software_id: $arg_err"] } # VALIDATE_ARGS
     my $swid = $args{software_id};
 
     my $res;
@@ -136,10 +136,11 @@ sub list_software_releases {
 1;
 # ABSTRACT: Watch latest software releases
 
-
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -147,7 +148,7 @@ Software::Release::Watch - Watch latest software releases
 
 =head1 VERSION
 
-version 0.01
+This document describes version 0.02 of Software::Release::Watch (from Perl distribution Software-Release-Watch), released on 2014-05-26.
 
 =head1 SYNOPSIS
 
@@ -160,42 +161,14 @@ version 0.01
  $res = list_software();
  $res = list_software_releases(software_id=>'wordpress');
 
-=for Pod::Coverage get_url mech
-
-=head1 FAQ
-
-=head1 SEE ALSO
-
-L<Software::Catalog>
-
-C<Software::Release::Watch::*> modules.
-
-=head1 DESCRIPTION
-
-
-This module has L<Rinci> metadata.
-
 =head1 FUNCTIONS
 
-
-None are exported by default, but they are exportable.
 
 =head2 list_software(%args) -> [status, msg, result, meta]
 
 REPLACE ME.
 
 REPLACE ME
-
-Data is in table form. Table fields are as follow:
-
-=over
-
-=item *
-
-I<id> (ID field)
-
-
-=back
 
 Arguments ('*' denotes required arguments):
 
@@ -219,27 +192,39 @@ Only return records where the 'id' field equals specified value.
 
 Only return records where the 'id' field contains specified text.
 
+=item * B<id.in> => I<array>
+
+Only return records where the 'id' field is in the specified values.
+
 =item * B<id.is> => I<str>
 
 Only return records where the 'id' field equals specified value.
+
+=item * B<id.isnt> => I<str>
+
+Only return records where the 'id' field does not equal specified value.
 
 =item * B<id.max> => I<str>
 
 Only return records where the 'id' field is less than or equal to specified value.
 
-=item * B<id.min> => I<array>
+=item * B<id.min> => I<str>
 
 Only return records where the 'id' field is greater than or equal to specified value.
 
 =item * B<id.not_contains> => I<str>
 
-Only return records where the 'id' field does not contain a certain text.
+Only return records where the 'id' field does not contain specified text.
+
+=item * B<id.not_in> => I<array>
+
+Only return records where the 'id' field is not in the specified values.
 
 =item * B<id.xmax> => I<str>
 
 Only return records where the 'id' field is less than specified value.
 
-=item * B<id.xmin> => I<array>
+=item * B<id.xmin> => I<str>
 
 Only return records where the 'id' field is greater than specified value.
 
@@ -278,7 +263,15 @@ as list/array (field value, field value, ...).
 
 Return value:
 
-Returns an enveloped result (an array). First element (status) is an integer containing HTTP status code (200 means OK, 4xx caller error, 5xx function error). Second element (msg) is a string containing error message, or 'OK' if status is 200. Third element (result) is optional, the actual result. Fourth element (meta) is called result metadata and is optional, a hash that contains extra information.
+Returns an enveloped result (an array).
+
+First element (status) is an integer containing HTTP status code
+(200 means OK, 4xx caller error, 5xx function error). Second element
+(msg) is a string containing error message, or 'OK' if status is
+200. Third element (result) is optional, the actual result. Fourth
+element (meta) is called result metadata and is optional, a hash
+that contains extra information.
+
 
 =head2 list_software_releases(%args) -> [status, msg, result, meta]
 
@@ -315,7 +308,40 @@ Arguments ('*' denotes required arguments):
 
 Return value:
 
-Returns an enveloped result (an array). First element (status) is an integer containing HTTP status code (200 means OK, 4xx caller error, 5xx function error). Second element (msg) is a string containing error message, or 'OK' if status is 200. Third element (result) is optional, the actual result. Fourth element (meta) is called result metadata and is optional, a hash that contains extra information.
+Returns an enveloped result (an array).
+
+First element (status) is an integer containing HTTP status code
+(200 means OK, 4xx caller error, 5xx function error). Second element
+(msg) is a string containing error message, or 'OK' if status is
+200. Third element (result) is optional, the actual result. Fourth
+element (meta) is called result metadata and is optional, a hash
+that contains extra information.
+
+=for Pod::Coverage get_url mech
+
+=head1 FAQ
+
+=head1 SEE ALSO
+
+L<Software::Catalog>
+
+C<Software::Release::Watch::*> modules.
+
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/Software-Release-Watch>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-Software-Release-Watch>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=Software-Release-Watch>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 
@@ -323,10 +349,9 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Steven Haryanto.
+This software is copyright (c) 2014 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

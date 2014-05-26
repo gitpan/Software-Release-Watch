@@ -2,7 +2,8 @@ NAME
     Software::Release::Watch - Watch latest software releases
 
 VERSION
-    version 0.01
+    This document describes version 0.02 of Software::Release::Watch (from
+    Perl distribution Software-Release-Watch), released on 2014-05-26.
 
 SYNOPSIS
      use Software::Release::Watch qw(
@@ -14,26 +15,11 @@ SYNOPSIS
      $res = list_software();
      $res = list_software_releases(software_id=>'wordpress');
 
-FAQ
-SEE ALSO
-    Software::Catalog
-
-    "Software::Release::Watch::*" modules.
-
-DESCRIPTION
-    This module has Rinci metadata.
-
 FUNCTIONS
-    None are exported by default, but they are exportable.
-
   list_software(%args) -> [status, msg, result, meta]
     REPLACE ME.
 
     REPLACE ME
-
-    Data is in table form. Table fields are as follow:
-
-    *   *id* (ID field)
 
     Arguments ('*' denotes required arguments):
 
@@ -55,31 +41,45 @@ FUNCTIONS
 
         Only return records where the 'id' field contains specified text.
 
+    *   id.in => *array*
+
+        Only return records where the 'id' field is in the specified values.
+
     *   id.is => *str*
 
         Only return records where the 'id' field equals specified value.
+
+    *   id.isnt => *str*
+
+        Only return records where the 'id' field does not equal specified
+        value.
 
     *   id.max => *str*
 
         Only return records where the 'id' field is less than or equal to
         specified value.
 
-    *   id.min => *array*
+    *   id.min => *str*
 
         Only return records where the 'id' field is greater than or equal to
         specified value.
 
     *   id.not_contains => *str*
 
-        Only return records where the 'id' field does not contain a certain
+        Only return records where the 'id' field does not contain specified
         text.
+
+    *   id.not_in => *array*
+
+        Only return records where the 'id' field is not in the specified
+        values.
 
     *   id.xmax => *str*
 
         Only return records where the 'id' field is less than specified
         value.
 
-    *   id.xmin => *array*
+    *   id.xmin => *str*
 
         Only return records where the 'id' field is greater than specified
         value.
@@ -118,12 +118,14 @@ FUNCTIONS
 
     Return value:
 
-    Returns an enveloped result (an array). First element (status) is an
-    integer containing HTTP status code (200 means OK, 4xx caller error, 5xx
-    function error). Second element (msg) is a string containing error
-    message, or 'OK' if status is 200. Third element (result) is optional,
-    the actual result. Fourth element (meta) is called result metadata and
-    is optional, a hash that contains extra information.
+    Returns an enveloped result (an array).
+
+    First element (status) is an integer containing HTTP status code (200
+    means OK, 4xx caller error, 5xx function error). Second element (msg) is
+    a string containing error message, or 'OK' if status is 200. Third
+    element (result) is optional, the actual result. Fourth element (meta)
+    is called result metadata and is optional, a hash that contains extra
+    information.
 
   list_software_releases(%args) -> [status, msg, result, meta]
     List software releases.
@@ -142,18 +144,42 @@ FUNCTIONS
 
     Return value:
 
-    Returns an enveloped result (an array). First element (status) is an
-    integer containing HTTP status code (200 means OK, 4xx caller error, 5xx
-    function error). Second element (msg) is a string containing error
-    message, or 'OK' if status is 200. Third element (result) is optional,
-    the actual result. Fourth element (meta) is called result metadata and
-    is optional, a hash that contains extra information.
+    Returns an enveloped result (an array).
+
+    First element (status) is an integer containing HTTP status code (200
+    means OK, 4xx caller error, 5xx function error). Second element (msg) is
+    a string containing error message, or 'OK' if status is 200. Third
+    element (result) is optional, the actual result. Fourth element (meta)
+    is called result metadata and is optional, a hash that contains extra
+    information.
+
+FAQ
+SEE ALSO
+    Software::Catalog
+
+    "Software::Release::Watch::*" modules.
+
+HOMEPAGE
+    Please visit the project's homepage at
+    <https://metacpan.org/release/Software-Release-Watch>.
+
+SOURCE
+    Source repository is at
+    <https://github.com/sharyanto/perl-Software-Release-Watch>.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    <https://rt.cpan.org/Public/Dist/Display.html?Name=Software-Release-Watc
+    h>
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
 
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Steven Haryanto.
+    This software is copyright (c) 2014 by Steven Haryanto.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
