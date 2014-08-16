@@ -21,8 +21,9 @@ requires:
   Module::List: '0'
   Moo: '0'
   Moo::Role: '0'
-  Perinci::CmdLine: '0.67'
+  Perinci::CmdLine::Any: '0.06'
   Perinci::Sub::Gen::AccessTable: '0.17'
+  Rinci: v1.1.0
   SemVer: v0.3.0
   Software::Catalog: '0.03'
   WWW::Mechanize: '0'
@@ -32,11 +33,15 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Software-Release-Watch
   homepage: https://metacpan.org/release/Software-Release-Watch
   repository: git://github.com/sharyanto/perl-Software-Release-Watch.git
-version: '0.02'
+version: '0.03'
 x_Dist_Zilla:
   perl:
-    version: '5.018002'
+    version: '5.018001'
   plugins:
+    -
+      class: Dist::Zilla::Plugin::Rinci::ScriptFromFunc
+      name: Rinci::ScriptFromFunc
+      version: '0.01'
     -
       class: Dist::Zilla::Plugin::GatherDir
       name: '@Author::SHARYANTO/@Filter/GatherDir'
@@ -175,7 +180,7 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Plugin::Perinci
               name: '@Author::SHARYANTO/Perinci'
-              version: '0.14'
+              version: '0.15'
             -
               class: Pod::Weaver::Section::Leftovers
               name: '@Author::SHARYANTO/Leftovers'
@@ -225,7 +230,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Rinci::Validate
       name: '@Author::SHARYANTO/Rinci::Validate'
-      version: '0.12'
+      version: '0.13'
     -
       class: Dist::Zilla::Plugin::SHARYANTO::OurPkgVersion
       name: '@Author::SHARYANTO/SHARYANTO::OurPkgVersion'
@@ -240,7 +245,7 @@ x_Dist_Zilla:
           script_finder:
             - ':ExecFiles'
       name: '@Author::SHARYANTO/Test::Compile'
-      version: '2.040'
+      version: '2.039'
     -
       class: Dist::Zilla::Plugin::Test::Rinci
       name: '@Author::SHARYANTO/Test::Rinci'

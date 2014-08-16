@@ -2,8 +2,8 @@ NAME
     Software::Release::Watch - Watch latest software releases
 
 VERSION
-    This document describes version 0.02 of Software::Release::Watch (from
-    Perl distribution Software-Release-Watch), released on 2014-05-26.
+    This document describes version 0.03 of Software::Release::Watch (from
+    Perl distribution Software-Release-Watch), released on 2014-08-16.
 
 SYNOPSIS
      use Software::Release::Watch qw(
@@ -127,6 +127,8 @@ FUNCTIONS
     is called result metadata and is optional, a hash that contains extra
     information.
 
+     (any)
+
   list_software_releases(%args) -> [status, msg, result, meta]
     List software releases.
 
@@ -152,6 +154,8 @@ FUNCTIONS
     element (result) is optional, the actual result. Fourth element (meta)
     is called result metadata and is optional, a hash that contains extra
     information.
+
+     (any)
 
 FAQ
 SEE ALSO

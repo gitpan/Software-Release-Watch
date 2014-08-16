@@ -3,7 +3,7 @@ package Software::Release::Watch::Versioning;
 use 5.010;
 use Moo::Role;
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 requires 'cmp_version';
 
@@ -22,7 +22,7 @@ Software::Release::Watch::Versioning - Versioning role
 
 =head1 VERSION
 
-This document describes version 0.02 of Software::Release::Watch::Versioning (from Perl distribution Software-Release-Watch), released on 2014-05-26.
+This document describes version 0.03 of Software::Release::Watch::Versioning (from Perl distribution Software-Release-Watch), released on 2014-08-16.
 
 =head1 HOMEPAGE
 

@@ -3,7 +3,7 @@ package Software::Release::Watch::Software;
 use 5.010;
 use Moo::Role;
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 has watcher => (is => 'rw', required => 1);
 
@@ -27,7 +27,7 @@ Software::Release::Watch::Software - Software role
 
 =head1 VERSION
 
-This document describes version 0.02 of Software::Release::Watch::Software (from Perl distribution Software-Release-Watch), released on 2014-05-26.
+This document describes version 0.03 of Software::Release::Watch::Software (from Perl distribution Software-Release-Watch), released on 2014-08-16.
 
 =for Pod::Coverage watcher
 

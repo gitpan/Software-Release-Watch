@@ -4,7 +4,7 @@ use 5.010;
 use Log::Any '$log';
 use Moo::Role;
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 #my @archive_exts = qw(tar.gz tar.bz2 tar zip rar);
 #my $archive_re   = join("|", map {quotemeta} @archive_exts);
@@ -39,7 +39,7 @@ Software::Release::Watch::ExtractInfo::Filename - Parse releases from name like 
 
 =head1 VERSION
 
-This document describes version 0.02 of Software::Release::Watch::ExtractInfo::Filename (from Perl distribution Software-Release-Watch), released on 2014-05-26.
+This document describes version 0.03 of Software::Release::Watch::ExtractInfo::Filename (from Perl distribution Software-Release-Watch), released on 2014-08-16.
 
 =for Pod::Coverage extract_info
 

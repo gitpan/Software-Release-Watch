@@ -4,7 +4,7 @@ use 5.010;
 use Moo::Role;
 use experimental 'smartmatch';
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 #with 'Software::Release::Watch::Versioning';
 with 'Software::Release::Watch::Source::WebPage';
@@ -61,7 +61,7 @@ Software::Release::Watch::Source::WebPage::ArchiveLinks - Get releases from arch
 
 =head1 VERSION
 
-This document describes version 0.02 of Software::Release::Watch::Source::WebPage::ArchiveLinks (from Perl distribution Software-Release-Watch), released on 2014-05-26.
+This document describes version 0.03 of Software::Release::Watch::Source::WebPage::ArchiveLinks (from Perl distribution Software-Release-Watch), released on 2014-08-16.
 
 =for Pod::Coverage parse_html
 

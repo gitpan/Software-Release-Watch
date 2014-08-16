@@ -5,7 +5,7 @@ use Moo::Role;
 
 use SemVer;
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 sub cmp_version {
     my ($a, $b) = @_;
@@ -27,7 +27,7 @@ Software::Release::Watch::Versioning::SemVer - Semantic versioning as per semver
 
 =head1 VERSION
 
-This document describes version 0.02 of Software::Release::Watch::Versioning::SemVer (from Perl distribution Software-Release-Watch), released on 2014-05-26.
+This document describes version 0.03 of Software::Release::Watch::Versioning::SemVer (from Perl distribution Software-Release-Watch), released on 2014-08-16.
 
 =for Pod::Coverage cmp_version
 

@@ -14,7 +14,7 @@ our @EXPORT_OK = qw(
                        list_software_releases
                );
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 our %SPEC;
 
@@ -148,7 +148,7 @@ Software::Release::Watch - Watch latest software releases
 
 =head1 VERSION
 
-This document describes version 0.02 of Software::Release::Watch (from Perl distribution Software-Release-Watch), released on 2014-05-26.
+This document describes version 0.03 of Software::Release::Watch (from Perl distribution Software-Release-Watch), released on 2014-08-16.
 
 =head1 SYNOPSIS
 
@@ -272,6 +272,8 @@ First element (status) is an integer containing HTTP status code
 element (meta) is called result metadata and is optional, a hash
 that contains extra information.
 
+ (any)
+
 
 =head2 list_software_releases(%args) -> [status, msg, result, meta]
 
@@ -281,20 +283,11 @@ Statuses:
 
 =over
 
-=item *
+=item * 541 - transient network failure
 
-541 - transient network failure
+=item * 542 - permanent network failure (e.g. server returns 404 page)
 
-
-=item *
-
-542 - permanent network failure (e.g. server returns 404 page)
-
-
-=item *
-
-543 - parsing failure (permanent)
-
+=item * 543 - parsing failure (permanent)
 
 =back
 
@@ -316,6 +309,8 @@ First element (status) is an integer containing HTTP status code
 200. Third element (result) is optional, the actual result. Fourth
 element (meta) is called result metadata and is optional, a hash
 that contains extra information.
+
+ (any)
 
 =for Pod::Coverage get_url mech
 

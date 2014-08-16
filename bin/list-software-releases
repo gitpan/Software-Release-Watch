@@ -1,17 +1,21 @@
-#!/usr/bin/perl
+#!perl
 
-use 5.010;
+# Note: This script is a CLI interface to Riap function /Software/Release/Watch/list_software_releases
+# and generated automatically using Dist::Zilla::Plugin::Rinci::ScriptFromFunc version 0.01
+
+our $DATE = '2014-08-16'; # DATE
+our $VERSION = '0.03'; # VERSION
+
+use 5.010001;
 use strict;
 use warnings;
 
-our $VERSION = '0.02'; # VERSION
+use Perinci::CmdLine::Any;
 
-use Perinci::CmdLine;
-Perinci::CmdLine->new(
-    url => '/Software/Release/Watch/list_software_releases',
+Perinci::CmdLine::Any->new(
+    url => "/Software/Release/Watch/list_software_releases",
 )->run;
 
-1;
 # ABSTRACT: List software releases
 # PODNAME: list-software-releases
 
@@ -27,16 +31,39 @@ list-software-releases - List software releases
 
 =head1 VERSION
 
-This document describes version 0.02 of list-software-releases (from Perl distribution Software-Release-Watch), released on 2014-05-26.
+This document describes version 0.03 of list-software-releases (from Perl distribution Software-Release-Watch), released on 2014-08-16.
+
+=head1 SYNOPSIS
+
+Usage:
+
+ % list-software-releases
+
+Examples:
+
+ TODO
+
+To see all options:
+
+ % list-software-releases --help
 
 =head1 DESCRIPTION
 
-This is the command-line interface for L<Software::Release::Watch>'s
-C<list_software_releases()> function.
+Statuses:
 
-=head1 SEE ALSO
+=over
 
-L<Software::Release::Watch>
+=item * 541 - transient network failure
+
+=item * 542 - permanent network failure (e.g. server returns 404 page)
+
+=item * 543 - parsing failure (permanent)
+
+=back
+
+=head1 OPTIONS
+
+ TODO
 
 =head1 HOMEPAGE
 

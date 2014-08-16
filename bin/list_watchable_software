@@ -1,19 +1,23 @@
-#!/usr/bin/perl
+#!perl
 
-use 5.010;
+# Note: This script is a CLI interface to Riap function /Software/Release/Watch/list_software
+# and generated automatically using Dist::Zilla::Plugin::Rinci::ScriptFromFunc version 0.01
+
+our $DATE = '2014-08-16'; # DATE
+our $VERSION = '0.03'; # VERSION
+
+use 5.010001;
 use strict;
 use warnings;
 
-our $VERSION = '0.02'; # VERSION
+use Perinci::CmdLine::Any;
 
-use Perinci::CmdLine;
-Perinci::CmdLine->new(
-    url => '/Software/Release/Watch/list_software',
+Perinci::CmdLine::Any->new(
+    url => "/Software/Release/Watch/list_software",
 )->run;
 
-1;
-# ABSTRACT: List watchable software
-# PODNAME: list-watchable-software
+# ABSTRACT: REPLACE ME
+# PODNAME: list_watchable_software
 
 __END__
 
@@ -23,24 +27,33 @@ __END__
 
 =head1 NAME
 
-list-watchable-software - List watchable software
+list_watchable_software - REPLACE ME
 
 =head1 VERSION
 
-This document describes version 0.02 of list-watchable-software (from Perl distribution Software-Release-Watch), released on 2014-05-26.
+This document describes version 0.03 of list_watchable_software (from Perl distribution Software-Release-Watch), released on 2014-08-16.
+
+=head1 SYNOPSIS
+
+Usage:
+
+ % list_watchable_software
+
+Examples:
+
+ TODO
+
+To see all options:
+
+ % list_watchable_software --help
 
 =head1 DESCRIPTION
 
-This is a command-line interface for L<Software::Release::Watch>'s
-C<list_software()> function.
+REPLACE ME
 
-=head1 FAQ
+=head1 OPTIONS
 
-=head1 SEE ALSO
-
-L<Software::Release::Watch>
-
-L<Software::Catalog>
+ TODO
 
 =head1 HOMEPAGE
 

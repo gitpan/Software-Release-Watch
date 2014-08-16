@@ -2,7 +2,7 @@ use 5.006;
 use strict;
 use warnings;
 
-# this test was generated with Dist::Zilla::Plugin::Test::Compile 2.040
+# this test was generated with Dist::Zilla::Plugin::Test::Compile 2.039
 
 use Test::More  tests => 9 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
@@ -20,7 +20,7 @@ my @module_files = (
 
 my @scripts = (
     'bin/list-software-releases',
-    'bin/list-watchable-software'
+    'bin/list_watchable_software'
 );
 
 # no fake home requested

@@ -7,7 +7,7 @@ META.yml
 Makefile.PL
 README
 bin/list-software-releases
-bin/list-watchable-software
+bin/list_watchable_software
 dist.ini
 lib/Software/Release/Watch.pm
 lib/Software/Release/Watch/ExtractInfo/Filename.pm

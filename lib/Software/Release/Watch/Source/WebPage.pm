@@ -3,7 +3,7 @@ package Software::Release::Watch::Source::WebPage;
 use 5.010;
 use Moo::Role;
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 requires "url";
 requires "parse_html";
@@ -34,7 +34,7 @@ Software::Release::Watch::Source::WebPage - Get releases from web page
 
 =head1 VERSION
 
-This document describes version 0.02 of Software::Release::Watch::Source::WebPage (from Perl distribution Software-Release-Watch), released on 2014-05-26.
+This document describes version 0.03 of Software::Release::Watch::Source::WebPage (from Perl distribution Software-Release-Watch), released on 2014-08-16.
 
 =for Pod::Coverage list_releases
 

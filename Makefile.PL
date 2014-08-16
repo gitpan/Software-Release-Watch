@@ -18,8 +18,8 @@ my %WriteMakefileArgs = (
   },
   "DISTNAME" => "Software-Release-Watch",
   "EXE_FILES" => [
-    "bin/list-software-releases",
-    "bin/list-watchable-software"
+    "bin/list_watchable_software",
+    "bin/list-software-releases"
   ],
   "LICENSE" => "perl",
   "NAME" => "Software::Release::Watch",
@@ -28,8 +28,9 @@ my %WriteMakefileArgs = (
     "Module::List" => 0,
     "Moo" => 0,
     "Moo::Role" => 0,
-    "Perinci::CmdLine" => "0.67",
+    "Perinci::CmdLine::Any" => "0.06",
     "Perinci::Sub::Gen::AccessTable" => "0.17",
+    "Rinci" => "v1.1.0",
     "SemVer" => "v0.3.0",
     "Software::Catalog" => "0.03",
     "WWW::Mechanize" => 0,
@@ -41,7 +42,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.02",
+  "VERSION" => "0.03",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -56,8 +57,9 @@ my %FallbackPrereqs = (
   "Module::List" => 0,
   "Moo" => 0,
   "Moo::Role" => 0,
-  "Perinci::CmdLine" => "0.67",
+  "Perinci::CmdLine::Any" => "0.06",
   "Perinci::Sub::Gen::AccessTable" => "0.17",
+  "Rinci" => "v1.1.0",
   "SemVer" => "v0.3.0",
   "Software::Catalog" => "0.03",
   "Test::More" => 0,
